@@ -10,13 +10,13 @@ function bground(backC, ringC) {
       bctx.fillStyle='#a4b494';
       bctx.fill();
       bctx.fillStyle = backC;
-      bctx.fillRect(0, 50, 1500, 400);
+      bctx.fillRect(0, 100, 1190, 400);
      
     
      
     
       bctx.beginPath();
-      bctx.translate(bCanvas.width / 2, (2 * bCanvas.height) / 7); //values 
+      bctx.translate(bCanvas.width / 2, (2 * bCanvas.height) /5.5); //values 
       bctx.beginPath();
       bctx.fillStyle = ringC;
       bctx.arc(-80,20, 100, 0, 2*Math.PI);
@@ -97,7 +97,15 @@ function bground(backC, ringC) {
       bctx.lineTo(-600,-160);
       bctx.lineWidth=4;
       bctx.stroke();
+
+
+      //pole
+     
+     
+
 }
   
 
   bground("#c87941", "#87431d");
+
+ 
