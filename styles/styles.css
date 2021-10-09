@@ -28,3 +28,17 @@ p{
     margin:50px;
     font-size:30px;
 }
+
+#backCanvas {
+    background-image: url();
+    position: absolute;
+    left: 0%;
+    top: 40%;
+    z-index: -1;
+  }
+  #frontcanvas {
+    position: absolute;
+    left: 0%;
+    top: 40%;
+    z-index: 2;
+  }

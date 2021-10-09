@@ -10,7 +10,7 @@ function bground(backC, ringC) {
       bctx.fillStyle='#a4b494';
       bctx.fill();
       bctx.fillStyle = backC;
-      bctx.fillRect(0, 50, 1500, 400);
+      bctx.fillRect(0, 15, 1500, 400);
      
     
      
