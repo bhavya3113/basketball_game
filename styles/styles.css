@@ -1,44 +1,43 @@
-*{
-    margin:0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
-#score-board{
-    display:block;
-    margin:50px;
+#score-board {
+  display: block;
+  margin: 50px;
 }
-#progress-bar{
-    width:30%;
-    height:25%;
-    background-image: linear-gradient(blue,pink);
-    border-radius:20px;
-    display:inline-block;
-  
+#progress-bar {
+  width: 30%;
+  height: 25%;
+  background-image: linear-gradient(blue, pink);
+  border-radius: 20px;
+  display: inline-block;
 }
-#progress{
-    border-radius:15px;
-    height:100%;
-    background-color:grey;
-    float:right;
+#progress {
+  border-radius: 15px;
+  height: 100%;
+  background-color: grey;
+  float: right;
 }
-h1{
-    text-align:center;
-    margin-top:30px;
+h1 {
+  text-align: center;
+  margin-top: 30px;
 }
-p{
-    margin:50px;
-    font-size:30px;
+p {
+  margin: 50px;
+  font-size: 30px;
 }
 
 #backCanvas {
-    background-image: url();
-    position: absolute;
-    left: 0%;
-    top: 40%;
-    z-index: -1;
-  }
-  #frontcanvas {
-    position: absolute;
-    left: 0%;
-    top: 40%;
-    z-index: 2;
-  }
+  background-image: url();
+  position: absolute;
+  left: 0%;
+  top: 40%;
+  z-index: -1;
+}
+#frontcanvas {
+  position: absolute;
+  left: 0%;
+  top: 40%;
+  z-index: 2;
+}

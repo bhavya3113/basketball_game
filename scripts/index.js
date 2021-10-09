@@ -15,7 +15,7 @@ var screen = {
   },
 };
 
-function ball(ball_img , x, y)
+function Ball(ball_img , x, y)
 {
   this.ballimg = ball_img;
   this.x = x;
@@ -28,20 +28,52 @@ function ball(ball_img , x, y)
   this.scored = false;
 }
 
-ball.prototype.draw = function () {
-  screen.context.drawImage(this.ballimg, this.x, this.y, 100, 100);
+Ball.prototype.draw = function () {
+  screen.context.drawImage(this.ballimg, this.x, this.y, 90, 90);
 };
 
-ball.prototype.move = function () {
+Ball.prototype.move = function () {
   this.draw();
   this.x += this.xVel;
   this.y -= this.yVel;
   this.yVel -= this.yAcc;
 };
 
-ball.prototype.reset = function () {
+Ball.prototype.reset = function () {
   this.x = this.xpos;
   this.y = this.ypos;
   this.draw();
 };
+function Angle(x, y) {
+  this.x = x;
+  this.y = y;
+  this.xCenter = 20;
+  this.yCenter = 200;
+  this.direction = 1;
+}
 
+Angle.prototype.draw = function () {
+  ctx = screen.context;
+  ctx.beginPath();
+  ctx.strokeStyle = "green";
+  ctx.lineWidth = 6;
+  ctx.moveTo(this.x, this.y);
+  ctx.lineTo(40,350);
+  ctx.stroke();
+};
+
+Angle.prototype.update = function () {
+  this.clear();
+  this.draw();
+  this.x += this.direction;
+  this.y += this.direction;
+  if (this.y > 240) {
+    this.direction = -1;
+  } else if (this.x < 100) {
+    this.direction = 1;
+  }
+};
+
+Angle.prototype.clear = function () {
+  screen.context.clearRect(30,240,200,200);
+};
