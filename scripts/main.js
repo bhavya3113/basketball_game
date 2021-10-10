@@ -1,6 +1,8 @@
 var bCanvas=document.getElementById("backCanvas");
 var bctx=bCanvas.getContext("2d");
 bCanvas.height=window.innerHeight;
+bCanvas.width=window.innerWidth;
+
 
 
 function bground(backC, ringC) {
@@ -12,13 +14,13 @@ function bground(backC, ringC) {
 
      
 
-      bctx.fillRect(0, 10, 1190, 360);
+      bctx.fillRect(0, 10, 2000, 370);
      
     
      
     
       bctx.beginPath();
-      bctx.translate(bCanvas.width / 1.67, (2 * bCanvas.height) /9); //values 
+      bctx.translate(bCanvas.width / 1.9, (2 * bCanvas.height) /9); //values 
       bctx.beginPath();
       bctx.fillStyle = ringC;
       bctx.arc(-80,20, 100, 0, 2*Math.PI);
@@ -110,4 +112,4 @@ function bground(backC, ringC) {
 
   bground("#c87941", "#87431d");
 
- 
+  
