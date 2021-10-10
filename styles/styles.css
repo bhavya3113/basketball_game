@@ -41,6 +41,7 @@ p {
 button{
   float:right;
   margin-right:20px;
+  margin-top:-75px;
  background-color: yellow;
  width:250px;
  height:80px;
@@ -66,4 +67,14 @@ button:hover{
   top: 40%;
   z-index: 2;
   margin:40px;
+}
+#poleCanvas{
+
+  position:absolute;
+  left:800px;
+  top:-130px;
+}
+#container{
+  position:relative;
+
 }
