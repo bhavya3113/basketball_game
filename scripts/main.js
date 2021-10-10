@@ -15,7 +15,7 @@ function bground(backC, ringC) {
 
      
 
-      bctx.fillRect(0, 10, 2000, 370);
+      bctx.fillRect(0, 10, 2000, 380);
      
     
      
@@ -104,7 +104,7 @@ function bground(backC, ringC) {
       bctx.stroke();
 
 
-      //pole
+    
      
      
 
@@ -112,5 +112,16 @@ function bground(backC, ringC) {
   
 
   bground("#c87941", "#87431d");
+  var pole=document.getElementById("poleCanvas");
+  var polectx=pole.getContext("2d");
 
-  
+
+  function poleground(dc) {
+   
+      polectx.beginPath();
+      polectx.fillStyle='#a4b494';
+      polectx.fill();
+      polectx.fillStyle =dc;    
+       polectx.fillRect(300,0, 150,10);
+     }
+      poleground("red");
