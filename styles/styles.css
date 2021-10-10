@@ -6,6 +6,14 @@
   display: block;
   margin: 50px;
 }
+#score{
+  width:200px;
+  background-image:linear-gradient(grey,aqua);
+  font-size:40px;
+  text-align: center;
+  margin:50px;
+  border-radius:50%;
+}
 #progress-bar {
   width: 30%;
   height: 25%;
@@ -21,23 +29,41 @@
 }
 h1 {
   text-align: center;
-  margin-top: 30px;
+  color:lime;
+  font-size:80px;
+  margin:30px;
 }
 p {
   margin: 50px;
   font-size: 30px;
 }
 
+button{
+  float:right;
+  margin-right:20px;
+ background-color: yellow;
+ width:250px;
+ height:80px;
+ font-size:35px;
+ transition-duration:0.4s;
+}
+button:hover{
+  background-color:grey;
+  box-shadow: 5px 5px;
+}
+
 #backCanvas {
-  background-image: url();
+ 
   position: absolute;
   left: 0%;
   top: 40%;
   z-index: -1;
+  margin-top:70px;
 }
 #frontcanvas {
   position: absolute;
   left: 0%;
   top: 40%;
   z-index: 2;
+  margin:40px;
 }
