@@ -1,31 +1,69 @@
-*{
-    margin:0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
+}
+#score-board {
+  display: block;
+  margin: 50px;
+}
+#score{
+  width:200px;
+  background-image:linear-gradient(grey,aqua);
+  font-size:40px;
+  text-align: center;
+  margin:50px;
+  border-radius:50%;
+}
+#progress-bar {
+  width: 30%;
+  height: 25%;
+  background-image: linear-gradient(blue, pink);
+  border-radius: 20px;
+  display: inline-block;
+}
+#progress {
+  border-radius: 15px;
+  height: 100%;
+  background-color: grey;
+  float: right;
+}
+h1 {
+  text-align: center;
+  color:lime;
+  font-size:80px;
+  margin:30px;
+}
+p {
+  margin: 50px;
+  font-size: 30px;
 }
 
-#score-board{
-    display:block;
-    margin:50px;
+button{
+  float:right;
+  margin-right:20px;
+ background-color: yellow;
+ width:250px;
+ height:80px;
+ font-size:35px;
+ transition-duration:0.4s;
 }
-#progress-bar{
-    width:30%;
-    height:25%;
-    background-image: linear-gradient(blue,pink);
-    border-radius:20px;
-    display:inline-block;
-  
+button:hover{
+  background-color:grey;
+  box-shadow: 5px 5px;
 }
-#progress{
-    border-radius:15px;
-    height:100%;
-    background-color:grey;
-    float:right;
+
+#backCanvas {
+ 
+  position: absolute;
+  left: 0%;
+  top: 40%;
+  z-index: -1;
+  margin-top:70px;
 }
-h1{
-    text-align:center;
-    
-}
-p{
-    margin:50px;
-    font-size:30px;
+#frontcanvas {
+  position: absolute;
+  left: 0%;
+  top: 40%;
+  z-index: 2;
+  margin:40px;
 }

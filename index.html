@@ -18,25 +18,35 @@
         </script>
     </head>
     <body>
-        
-        <div id="score-board">
+        <script>
+            function darkMode(){
+               document.body.style.backgroundImage="url('https://i.pinimg.com/236x/c9/d2/e1/c9d2e16da442bf09cb9a2173acaf47ea--best-iphone-wallpapers-iphone--wallpaper.jpg')";
+
+            }
+            function lightMode(){
+                document.body.style.backgroundImage="url('https://besthqwallpapers.com/img/original/109803/gray-brick-wall-texture-green-leaves-between-bricks-stone-texture-old-stone-background.jpg')";
+            }
+        </script>
+         <div id="score-board">
             <div id="progress-bar">
                 <div id="progress" style="width:50%;">5</div>
             </div>
         </div>
         <div>
-            <p id="score">score</p>
+            <button onclick="darkMode()">DARK MODE</button>
+            <button onclick="lightMode()">LIGHT MODE</button>
+            <p id="score">SCORE</p>
         </div>
         <button onclick="darkMode()">Dark Mode</button>
         <button onclick="lightMode()">Light Mode</button>
 <h1 id="levels">LEVEL-1</h1>
-<h1 id="text">comments</h1>
 
 
 <canvas id="backCanvas" width="1400" height="700"></canvas>
-        
-        <script src="/basketball_game/scripts/main.js" async defer></script>
-        <script src="/basketball_game/scripts/game.js"></script>
-        <script src="/basketball_game/scripts/index.js"></script>
-    </body>
+
+<canvas id ="frontcanvas"></canvas>
+        <script src="scripts/main.js" async defer></script>
+        <script src ="scripts/index.js"></script>
+        <script src="scripts/game.js"></script>
+</body>
 </html>
