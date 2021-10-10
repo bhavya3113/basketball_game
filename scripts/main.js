@@ -1,5 +1,6 @@
 var bCanvas=document.getElementById("backCanvas");
 var bctx=bCanvas.getContext("2d");
+bCanvas.width=window.innerWidth;
 bCanvas.height=window.innerHeight;
 
 
