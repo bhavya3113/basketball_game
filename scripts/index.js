@@ -47,8 +47,6 @@ Ball.prototype.reset = function () {
 function Angle(x, y) {
   this.x = x;
   this.y = y;
-  this.xCenter = 20;
-  this.yCenter = 200;
   this.direction = 1;
 }
 
@@ -58,19 +56,20 @@ Angle.prototype.draw = function () {
   ctx.strokeStyle = "green";
   ctx.lineWidth = 6;
   ctx.moveTo(this.x, this.y);
-  ctx.lineTo(40,350);
+  ctx.lineTo(40,320);
   ctx.stroke();
 };
 
 Angle.prototype.update = function () {
   this.clear();
   this.draw();
-  this.x += this.direction;
-  this.y += this.direction;
+  console.log(this.x,this.y,this.direction);
+  this.x -= this.direction;
+  this.y -= this.direction;
   if (this.y > 240) {
-    this.direction = -1;
-  } else if (this.x < 100) {
     this.direction = 1;
+  } else if (this.x < 40) {
+    this.direction = -1;
   }
 };
 

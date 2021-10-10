@@ -1,6 +1,5 @@
 var bCanvas=document.getElementById("backCanvas");
 var bctx=bCanvas.getContext("2d");
-bCanvas.width=window.innerWidth;
 bCanvas.height=window.innerHeight;
 bCanvas.width=window.innerWidth;
 
@@ -21,7 +20,7 @@ function bground(backC, ringC) {
      
     
       bctx.beginPath();
-      bctx.translate(bCanvas.width / 1.9, (2 * bCanvas.height) /9); //values 
+      bctx.translate(bCanvas.width / 1.9, (2 * bCanvas.height) /7); //values 
       bctx.beginPath();
       bctx.fillStyle = ringC;
       bctx.arc(-80,20, 100, 0, 2*Math.PI);

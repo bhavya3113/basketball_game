@@ -12,4 +12,4 @@ var angle = new Angle(85,280);
 angle.draw();
 var angleid = setInterval(function () {
   angle.update();
-}, 35);
+}, 30);
