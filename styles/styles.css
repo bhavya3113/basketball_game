@@ -2,26 +2,29 @@
   margin: 0;
   padding: 0;
 }
+
 #score-board {
   display: block;
   margin: 50px;
 }
-#score{
-  width:200px;
-  background-image:linear-gradient(grey,aqua);
-  font-size:40px;
+#score {
+  width: 200px;
+  background-image: linear-gradient(grey, aqua);
+  font-size: 40px;
   text-align: center;
-  margin:50px;
-  border-radius:50%;
+  margin: 50px;
+  border-radius: 50%;
 }
 #progress-bar {
   width: 30%;
-  height: 25%;
+  height: 40%;
   background-image: linear-gradient(blue, pink);
   border-radius: 20px;
   display: inline-block;
 }
 #progress {
+  
+  width: 100%;
   border-radius: 15px;
   height: 100%;
   background-color: grey;
@@ -29,52 +32,46 @@
 }
 h1 {
   text-align: center;
-  color:lime;
-  font-size:80px;
-  margin:30px;
-}
-p {
-  margin: 50px;
-  font-size: 30px;
+  color: lime;
+  font-size: 80px;
+  margin: 30px;
 }
 
-button{
-  float:right;
-  margin-right:20px;
+button {
+  float: right;
+  margin-right: 20px;
   margin-top: -75px;
- background-color: yellow;
- width:250px;
- height:80px;
- font-size:35px;
- transition-duration:0.4s;
+  background-color: yellow;
+  width: 250px;
+  height: 80px;
+  font-size: 35px;
+  transition-duration: 0.4s;
+  z-index: -1;
 }
-button:hover{
-  background-color:grey;
+button:hover {
+  background-color: grey;
   box-shadow: 5px 5px;
 }
 
 #backCanvas {
- 
   position: absolute;
   left: 0%;
   top: 40%;
   z-index: -1;
-  margin-top:70px;
+  margin-top: 70px;
 }
 #frontcanvas {
   position: absolute;
   left: 0%;
-  top: 40%;
+  top: 0%;
   z-index: 2;
-  margin:40px;
 }
-#poleCanvas{
-
-  position:absolute;
-  left:800px;
-  top:-130px;
+#poleCanvas {
+  position: absolute;
+  left: 800px;
+  top: -130px;
+  z-index: -1;
 }
-#container{
-  position:relative;
-
+#container {
+  position: relative;
 }

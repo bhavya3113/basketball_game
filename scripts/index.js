@@ -47,32 +47,85 @@ Ball.prototype.reset = function () {
 function Angle(x, y) {
   this.x = x;
   this.y = y;
-  this.direction = 1;
+  this.change = 1;
 }
 
 Angle.prototype.draw = function () {
   ctx = screen.context;
   ctx.beginPath();
   ctx.strokeStyle = "green";
+  ctx.lineWidth = 5;
+  ctx.moveTo(0,560);
+  ctx.lineTo(78,560);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.strokeStyle = "green";
   ctx.lineWidth = 6;
   ctx.moveTo(this.x, this.y);
-  ctx.lineTo(40,320);
+  ctx.lineTo(40,560);
   ctx.stroke();
 };
 
 Angle.prototype.update = function () {
   this.clear();
   this.draw();
-  console.log(this.x,this.y,this.direction);
-  this.x -= this.direction;
-  this.y -= this.direction;
-  if (this.y > 240) {
-    this.direction = 1;
-  } else if (this.x < 40) {
-    this.direction = -1;
+  this.x += this.change;
+  this.y += this.change;
+  if (this.y > 530) {
+    this.change = -1;
+  } 
+   else if (this.x < 55) {
+    this.change = 1;
   }
 };
 
 Angle.prototype.clear = function () {
-  screen.context.clearRect(30,240,200,200);
+  screen.context.clearRect(20,458,200,200);
+};
+
+function Hoop(x, y, hooplen, backx, backy, backheight) {
+  this.x = x;
+  this.y = y;
+  this.hooplen = hooplen;
+  this.backx = backx;
+  this.backy = backy;
+  this.backheight = backheight;
+}
+Hoop.prototype.collide = function (x, y) {
+  var btx = x + 45;
+  var bty = y + 45;
+  //backboard collision
+  if (
+    x > this.backx &&
+    y  > this.backy &&
+    y  < this.backy + this.backheight
+  ) {
+    return 1;
+  }
+  //hoop front collision
+  if (
+    x  > this.x - this.hooplen - 10 &&
+    x  < this.x - this.hooplen + 10 &&
+    y  > this.y - 10 &&
+    y  < this.y + 30
+  ) {
+    return 1;
+  }
+  //score
+  if (
+    btx > this.x - this.hooplen &&
+    btx < this.x + 30 &&
+    bty > this.y - 10 &&
+    bty < this.y + 10
+  ) {
+    return 2;
+  }
+  if (
+    x  > this.x - 15 &&
+    x  < this.x + 30 &&
+    y  > this.y - 30 &&
+    y < this.y + 30
+  ) {
+    return 3;
+  } else return 0;
 };
