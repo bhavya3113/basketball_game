@@ -9,7 +9,13 @@ function startgame(){
   first.style.display="none";
   second.style.display="block";
 };
-
+function lightmode(){
+  second.style.backgroundImage=url('https://i.pinimg.com/236x/c9/d2/e1/c9d2e16da442bf09cb9a2173acaf47ea--best-iphone-wallpapers-iphone--wallpaper.jpg');
+}
+function darkmode()
+{
+  second.style.backgroundImage=url('https://besthqwallpapers.com/img/original/109803/gray-brick-wall-texture-green-leaves-between-bricks-stone-texture-old-stone-background.jpg');
+}
 var screen = {
   canvas: document.getElementById("frontcanvas"),
   setup: function () {
@@ -96,48 +102,48 @@ Angle.prototype.clear = function () {
   screen.context.clearRect(20,458,200,200);
 };
 
-function Hoop(x, y, hooplen, backx, backy, backheight) {
+function Hoop(x, y, length, backx, backy, backheight) {
   this.x = x;
   this.y = y;
-  this.hooplen = hooplen;
+  this.hooplength = length;
   this.backx = backx;
   this.backy = backy;
   this.backheight = backheight;
 }
 Hoop.prototype.collide = function (x, y) {
-  var btx = x + 45;
-  var bty = y + 45;
+  var ballx = x + 45;
+  var bally = y + 45;
   //backboard collision
   if (
-    x > this.backx &&
-    y  > this.backy &&
-    y  < this.backy + this.backheight
+    x+90 > this.backx &&
+    y+45  > this.backy &&
+    y+45  < this.backy + this.backheight
   ) {
     return 1;
   }
   //hoop front collision
   if (
-    x  > this.x - this.hooplen - 10 &&
-    x  < this.x - this.hooplen + 10 &&
-    y  > this.y - 10 &&
-    y  < this.y + 30
+    x+50  > this.x - this.hooplength - 10 &&
+    x+50  < this.x - this.hooplength + 10 &&
+    y+60  > this.y - 10 &&
+    y+60  < this.y + 30
   ) {
     return 1;
   }
   //score
   if (
-    btx > this.x - this.hooplen &&
-    btx < this.x + 30 &&
-    bty > this.y - 10 &&
-    bty < this.y + 10
+    ballx > this.x - this.hooplength &&
+    ballx < this.x + 20 &&
+    bally > this.y - 10 &&
+    bally < this.y + 10
   ) {
     return 2;
   }
   if (
-    x  > this.x - 15 &&
-    x  < this.x + 30 &&
-    y  > this.y - 30 &&
-    y < this.y + 30
+    x+60  > this.x - 15 &&
+    x+60  < this.x + 30 &&
+    y+60  > this.y - 30 &&
+    y+60 < this.y + 30
   ) {
     return 3;
   } else return 0;

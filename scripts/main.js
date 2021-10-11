@@ -117,12 +117,21 @@ function bground(backC, ringC) {
 
   function poleground(dc) {
    
-      polectx.beginPath();
-      polectx.fillStyle='#a4b494';
-      polectx.fill();
-      polectx.fillStyle =dc;    
-       polectx.fillRect(290,0, 170,10);
+    polectx.beginPath();
+    polectx.fillStyle='#a4b494';
+    polectx.fill();
+    polectx.fillStyle =dc;    
+     polectx.fillRect(290,0,170,10);
 
+     polectx.moveTo(450,400);
+     polectx.lineTo(450,-20);
+     polectx.lineWidth=25;
+     polectx.stroke();
+
+     polectx.beginPath();
+     polectx.fillStyle="red";
+     polectx.fillRect(380,400,150,80);
+     polectx.fill()
 
      }
       poleground("red");
