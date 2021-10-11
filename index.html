@@ -8,6 +8,14 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/basketball_game/styles/styles.css">
+        <script>
+            function darkMode(){
+                document.body.style.backgroundColor="black";
+            }
+            function lightMode(){
+                document.body.style.backgroundColor="skyblue";
+            }
+        </script>
     </head>
     <body>
         <script>
@@ -29,9 +37,11 @@
             <button onclick="lightMode()">LIGHT MODE</button>
             <p id="score">SCORE</p>
         </div>
+
 <h1 id="levels">LEVEL-I</h1>
 
 <canvas id="backCanvas" width="1400" height="700"></canvas>
+
 <canvas id ="frontcanvas"></canvas>
 <div id="container">
 <canvas id="poleCanvas" width="900" height="1000"></canvas>
@@ -39,6 +49,5 @@
         <script src="scripts/main.js" async defer></script>
         <script src ="scripts/index.js"></script>
         <script src="scripts/game.js"></script>
-    </body> 
 </body>
 </html>
