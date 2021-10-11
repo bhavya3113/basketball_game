@@ -14,12 +14,12 @@ var angleid = setInterval(function () {
   angle.update();
 }, 30);
 
-var x_hoop = 460;
-var y_hoop = 10;
-var x_back=460;
-var y_back=0;
-var hoop = new Hoop(x_hoop, y_hoop, 170, x_back, y_back, 90);
+var xHoop = 1190;
+var yHoop = 180;
+var xTop=1190;
+var yTop=110;
 
+var hoop = new Hoop(xHoop, yHoop, 170, xTop, yTop, 90);
 
 var powerMeter;
 var power;
@@ -63,13 +63,13 @@ function releaseKey(event) {
           ball.scored = true;
           score += 1;
       updateScore();
-          ball.x = hoop.x - hoop.hooplen / 2 - 45;
+          ball.x = hoop.x - hoop.hooplength / 2 - 45;
           ball.goal();
         }
-        // if (collsionStatus == 1) {
-        //   ball.xVel *= -1;
-        //   ball.xVel -= 4;
-        // }
+        if (collsionStatus == 1) {
+          ball.xVel *= -1;
+          ball.xVel -= 4;
+        }
         if (collsionStatus == 3) {
           ball.xVel *= -1;
           ball.yVel *= -1;

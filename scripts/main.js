@@ -111,19 +111,32 @@ function bground(backC, ringC) {
   
 
   bground("#c87941", "#87431d");
-  var pole=document.getElementById("poleCanvas");
-  var polectx=pole.getContext("2d");
 
 
   function poleground(dc) {
    
-      polectx.beginPath();
-      polectx.fillStyle='#a4b494';
-      polectx.fill();
-      polectx.fillStyle =dc;    
-       polectx.fillRect(290,0, 170,10);
+    screen.context.beginPath();
+    screen.context.fillStyle='#a4b494';
+    screen.context.fill();
+    screen.context.fillStyle =dc;    
+    screen.context.fillRect(1020,170, 170,10);
 
+    screen.context.moveTo(1200,100);
+    screen.context.lineTo(1200,550);
+    screen.context.lineWidth=25;
+    screen.context.stroke();
 
+    screen.context.beginPath();
+    screen.context.fillStyle="red";
+    screen.context.fillRect(1130,550,170,80);
+    screen.context.fill()
+
+    var img = new Image();
+  img.onload = function() {
+    screen.context.drawImage(img,1020,172,150,150);
+  };
+  img.src = 'images/net.png';
+   
      }
       poleground("red");
 

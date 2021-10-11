@@ -65,7 +65,7 @@ h1 {
   margin: 30px;
 }
 
-button {
+.mode {
   float: right;
   margin-right: 20px;
   margin-top: -75px;
@@ -75,7 +75,7 @@ button {
   font-size: 35px;
   transition-duration: 0.4s;
 }
-button:hover {
+.mode:hover {
   background-color: grey;
   box-shadow: 5px 5px;
   cursor: pointer;
@@ -85,14 +85,14 @@ button:hover {
   position: absolute;
   left: 0%;
   top: 40%;
-  z-index: -1;
+  /* z-index: -1; */
   margin-top: 70px;
 }
 #frontcanvas {
   position: absolute;
   left: 0%;
   top: 0%;
-  z-index: 2;
+  /* z-index: 2; */
 }
 #poleCanvas {
   position: absolute;
