@@ -21,23 +21,34 @@
                 document.body.style.backgroundImage="url('https://besthqwallpapers.com/img/original/109803/gray-brick-wall-texture-green-leaves-between-bricks-stone-texture-old-stone-background.jpg')";
             }
         </script>
-         <div id="score-board">
-            <div id="progress-bar">
-                <div id="progress">0</div>
-                <!-- <div id="pbar"><div id="pbarspan">0</div></div> -->
+       <div id ="first">
+        <img src="images/bb.jpg">
+        <h1>BASKETBALL..!!</h1>
+        <button onclick="startgame()">LET'S PLAY</button>
+        <div id = "instructions">
+        <h2>INSTRUCTIONS...!</h2>
+        HOLD ARROW UP KEY TO INCREASE POWER.<br>THEN, RELEASE TO SHOOT ACCORDING TO ANGLE.
+      </div>
+    </div>
+        <div id = "second">
+            <div id="score-board">
+                <div id="progress-bar">
+                    <div id="progress">0</div>
+                </div>
             </div>
+            <div>
+                <button onclick="darkMode()">DARK MODE</button>
+                <button onclick="lightMode()">LIGHT MODE</button>
+                <p id="score">SCORE</p>
+            </div>
+    <h1 id="text">Come on!!</h1>
+    <canvas id="backCanvas" height="700" width="1400"></canvas>
+    <canvas id ="frontcanvas"></canvas>
+    <div id="container">
+    <canvas id="poleCanvas" width="500" height="1000"></canvas>
+    </div>
         </div>
-        <div>
-            <button onclick="darkMode()">DARK MODE</button>
-            <button onclick="lightMode()">LIGHT MODE</button>
-            <p id="score">SCORE</p>
-        </div>
-<h1 id="levels">LEVEL-1</h1>
-<canvas id="backCanvas" height="700" width="1400"></canvas>
-<canvas id ="frontcanvas"></canvas>
-<div id="container">
-<canvas id="poleCanvas" width="500" height="1000"></canvas>
-</div>
+        
         <script src="scripts/main.js" async defer></script>
         <script src ="scripts/index.js"></script>
         <script src="scripts/game.js"></script>

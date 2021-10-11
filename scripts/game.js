@@ -30,7 +30,6 @@ function pressKey(event) {
     keyPressed = true;
     power = 35;
     powerMeter = setInterval(function () {
-      console.log(power);
       powerbar.innerHTML = power - 34;
       let percentage = (power - 35) * 10;
       powerbar.style.width = 100 - percentage + "%";
@@ -63,9 +62,9 @@ function releaseKey(event) {
         if (collsionStatus == 2) {
           ball.scored = true;
           score += 1;
-      // updateScore();
+      updateScore();
           ball.x = hoop.x - hoop.hooplen / 2 - 45;
-          // ball.scoreAnimation();
+          ball.goal();
         }
         // if (collsionStatus == 1) {
         //   ball.xVel *= -1;
@@ -77,5 +76,21 @@ function releaseKey(event) {
         }
       }
     }, 19);
+  }
+}
+var scoretext = document.getElementById("score");
+var message = document.getElementById("text");
+var score = 0;
+
+function updateScore() {
+  scoretext.innerHTML = "score=" + score;
+  if (score == 3) {
+    message.innerHTML = "Amazing!";
+  } else if (score == 5) {
+    message.innerHTML = "On fire";
+  } else if (score == 8) {
+    message.innerHTML = "You are OP";
+  } else if (score == 10) {
+    message.innerHTML = "Great Going!";
   }
 }

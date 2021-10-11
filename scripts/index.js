@@ -2,6 +2,13 @@ var width = window.innerWidth;
 var height = window.innerHeight;
 var keyPressed = false;
 
+var first=document.getElementById('first');
+ var second=document.getElementById('second');
+
+function startgame(){
+  first.style.display="none";
+  second.style.display="block";
+};
 
 var screen = {
   canvas: document.getElementById("frontcanvas"),
@@ -44,6 +51,12 @@ Ball.prototype.reset = function () {
   this.y = this.ypos;
   this.draw();
 };
+
+Ball.prototype.goal = function () {
+  this.xVel = 0;
+};
+
+
 function Angle(x, y) {
   this.x = x;
   this.y = y;

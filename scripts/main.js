@@ -123,6 +123,7 @@ function bground(backC, ringC) {
       polectx.fillStyle =dc;    
        polectx.fillRect(290,0, 170,10);
 
+
      }
       poleground("red");
 
