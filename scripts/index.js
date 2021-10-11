@@ -115,7 +115,7 @@ Hoop.prototype.collide = function (x, y) {
   var bally = y + 45;
   //backboard collision
   if (
-    x+90 > this.backx &&
+    x+80 > this.backx &&
     y+45  > this.backy &&
     y+45  < this.backy + this.backheight
   ) {
