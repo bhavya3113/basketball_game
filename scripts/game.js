@@ -14,12 +14,12 @@ var angleid = setInterval(function () {
   angle.update();
 }, 30);
 
-var xHoop = 460;
-var yHoop = 10;
-var xTop=460;
-var yTop=0;
-var hoop = new Hoop(xHoop, yHoop, 170, xTop, yTop, 90);
+var xHoop = 1190;
+var yHoop = 180;
+var xTop=1190;
+var yTop=110;
 
+var hoop = new Hoop(xHoop, yHoop, 170, xTop, yTop, 90);
 
 var powerMeter;
 var power;
