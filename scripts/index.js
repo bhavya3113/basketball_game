@@ -9,13 +9,6 @@ function startgame(){
   first.style.display="none";
   second.style.display="block";
 };
-function lightmode(){
-  second.style.backgroundImage=url('https://i.pinimg.com/236x/c9/d2/e1/c9d2e16da442bf09cb9a2173acaf47ea--best-iphone-wallpapers-iphone--wallpaper.jpg');
-}
-function darkmode()
-{
-  second.style.backgroundImage=url('https://besthqwallpapers.com/img/original/109803/gray-brick-wall-texture-green-leaves-between-bricks-stone-texture-old-stone-background.jpg');
-}
 var screen = {
   canvas: document.getElementById("frontcanvas"),
   setup: function () {

@@ -63,7 +63,7 @@ function releaseKey(event) {
         if (collsionStatus == 2) {
           ball.scored = true;
           score += 1;
-      updateScore();
+      showcomments();
           ball.x = hoop.x - hoop.hooplength / 2 - 45;
           ball.goal();
         }
@@ -83,15 +83,21 @@ var scoretext = document.getElementById("score");
 var message = document.getElementById("text");
 var score = 0;
 
-function updateScore() {
+function showcomments() {
   scoretext.innerHTML = "score=" + score;
   if (score == 3) {
     message.innerHTML = "Amazing!";
   } else if (score == 5) {
-    message.innerHTML = "On fire";
+    message.innerHTML = "On fire!";
+    document.getElementById("second").style.backgroundColor="#000099";
   } else if (score == 8) {
-    message.innerHTML = "You are OP";
+    message.innerHTML = "Awesome!";
   } else if (score == 10) {
-    message.innerHTML = "Great Going!";
+    message.innerHTML = "You Won!!......Returning to HomePage...";
+    clearInterval(angleid);
+    setTimeout(function(){
+  second.style.display="none";
+  first.style.display="block";
+    },4000);
   }
 }

@@ -22,20 +22,30 @@
   width: 100vw;
   position: absolute;
 }
-#first button {
+#start{
   position: absolute;
   height: 100px;
   width: 200px;
   top: 40%;
   left: 40%;
+  background-color: yellow;
+  font-size: 35px;
+  transition-duration: 0.4s;
 }
+
+#start:hover {
+  background-color: grey;
+  box-shadow: 5px 5px;
+  cursor: pointer;
+}
+
 #second {
   position: absolute;
   top: 0%;
   display: none;
   height: 100vh;
   width: 100vw;
-  background-color: aqua;
+  background-color:skyblue;
 }
 #score-board {
   display: block;
@@ -68,22 +78,6 @@ h1 {
   color: lime;
   font-size: 60px;
   margin: 30px;
-}
-
-.mode {
-  float: right;
-  margin-right: 20px;
-  margin-top: -75px;
-  background-color: yellow;
-  width: 250px;
-  height: 80px;
-  font-size: 35px;
-  transition-duration: 0.4s;
-}
-.mode:hover {
-  background-color: grey;
-  box-shadow: 5px 5px;
-  cursor: pointer;
 }
 
 #backCanvas {
