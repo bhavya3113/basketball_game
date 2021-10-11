@@ -125,7 +125,7 @@ function bground(backC, ringC) {
        polectx.fillRect(290,0,170,10);
 
        polectx.moveTo(450,400);
-       polectx.lineTo(450,-10);
+       polectx.lineTo(450,-20);
        polectx.lineWidth=25;
        polectx.stroke();
 
