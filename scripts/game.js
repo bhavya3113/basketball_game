@@ -19,7 +19,7 @@ var yHoop = 180;
 var xTop=1190;
 var yTop=110;
 
-var hoop = new Hoop(xHoop, yHoop, 170, xTop, yTop, 90);
+var hoop = new Hoop(xHoop, yHoop, 170, xTop, yTop, 100);
 
 var powerMeter;
 var power;
@@ -51,6 +51,7 @@ function releaseKey(event) {
 
     shotid = setInterval(function () {
       screen.clear();
+      
       if (ball.x > width || ball.y > height) {
         ball.reset();
         clearInterval(shotid);
