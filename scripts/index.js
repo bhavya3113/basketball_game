@@ -8,6 +8,9 @@ var first=document.getElementById('first');
 function startgame(){
   first.style.display="none";
   second.style.display="block";
+  var x = document.getElementById("name").value;
+  document.getElementById("username").innerHTML = x;
+
 };
 var screen = {
   canvas: document.getElementById("frontcanvas"),

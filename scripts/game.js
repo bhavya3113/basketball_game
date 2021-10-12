@@ -93,7 +93,7 @@ function showcomments() {
   } else if (score == 8) {
     message.innerHTML = "Awesome!";
   } else if (score == 10) {
-    message.innerHTML = "You Won!!......Returning to HomePage...";
+    message.innerHTML = "You Won!!......<br>Returning to HomePage...";
     clearInterval(angleid);
     setTimeout(function(){
   second.style.display="none";

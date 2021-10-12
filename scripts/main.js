@@ -112,13 +112,13 @@ function bground(backC, ringC) {
 
   bground("#c87941", "#87431d");
 
-
-  function poleground(dc) {
+  
+  function poleground() {
    
     screen.context.beginPath();
     screen.context.fillStyle='#a4b494';
     screen.context.fill();
-    screen.context.fillStyle =dc;    
+    screen.context.fillStyle ="red";    
     screen.context.fillRect(1020,170, 170,10);
 
     screen.context.moveTo(1200,100);
@@ -136,8 +136,11 @@ function bground(backC, ringC) {
     screen.context.drawImage(img,1020,172,150,150);
   };
   img.src = 'images/net.png';
-   
      }
-      poleground("red");
+
+     var pole = setInterval(poleground,10);
+  
+
+      
 
       
