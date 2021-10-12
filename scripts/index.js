@@ -5,6 +5,9 @@ var keyPressed = false;
 var first=document.getElementById('first');
  var second=document.getElementById('second');
 
+
+ //to switch between frontpage and main-game page
+
 function startgame(){
   first.style.display="none";
   second.style.display="block";
@@ -12,6 +15,9 @@ function startgame(){
   document.getElementById("username").innerHTML = x;
 
 };
+
+
+
 var screen = {
   canvas: document.getElementById("frontcanvas"),
   setup: function () {
@@ -106,41 +112,42 @@ function Hoop(x, y, length, backx, backy, backheight) {
   this.backy = backy;
   this.backheight = backheight;
 }
+
 Hoop.prototype.collide = function (x, y) {
   var ballx = x + 45;
   var bally = y + 45;
-  //backboard collision
-  if (
-    x+80 > this.backx &&
-    y+45  > this.backy &&
-    y+45  < this.backy + this.backheight
+  //back collision
+  if (x+90 > this.backx &&
+    y+50  > this.backy &&
+    y+50  < this.backy + this.backheight
   ) {
     return 1;
   }
   //hoop front collision
   if (
-    x+50  > this.x - this.hooplength - 10 &&
-    x+50  < this.x - this.hooplength + 10 &&
-    y+60  > this.y - 10 &&
-    y+60  < this.y + 30
+    x+80  > this.x - this.hooplength - 10 &&
+    x+80  < this.x - this.hooplength &&
+    y+80  > this.y - 10 &&
+    y+80  < this.y + 30
   ) {
     return 1;
   }
   //score
   if (
     ballx > this.x - this.hooplength &&
-    ballx < this.x + 20 &&
+    ballx < this.x + 25 &&
     bally > this.y - 10 &&
-    bally < this.y + 10
+    bally < this.y + 5
   ) {
     return 2;
   }
+  // more collision conditions
   if (
-    x+60  > this.x - 15 &&
+    x+60  > this.x - 10 &&
     x+60  < this.x + 30 &&
     y+60  > this.y - 30 &&
     y+60 < this.y + 30
   ) {
     return 3;
-  } else return 0;
+  } 
 };

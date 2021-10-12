@@ -17,9 +17,9 @@ var angleid = setInterval(function () {
 var xHoop = 1190;
 var yHoop = 180;
 var xTop=1190;
-var yTop=110;
+var yTop=98;
 
-var hoop = new Hoop(xHoop, yHoop, 170, xTop, yTop, 100);
+var hoop = new Hoop(xHoop, yHoop, 170, xTop, yTop, 80);
 
 var powerMeter;
 var power;
@@ -58,20 +58,20 @@ function releaseKey(event) {
         ball.scored = false;
       } else {
         ball.move();
-        var collsionStatus = hoop.collide(ball.x, ball.y);
+        var collision = hoop.collide(ball.x, ball.y);
         //score
-        if (collsionStatus == 2) {
+        if (collision == 2) {
           ball.scored = true;
           score += 1;
       showcomments();
           ball.x = hoop.x - hoop.hooplength / 2 - 45;
           ball.goal();
         }
-        if (collsionStatus == 1) {
+        if (collision == 1) {
           ball.xVel *= -1;
           ball.xVel -= 4;
         }
-        if (collsionStatus == 3) {
+        if (collision == 3) {
           ball.xVel *= -1;
           ball.yVel *= -1;
         }
@@ -98,6 +98,6 @@ function showcomments() {
     setTimeout(function(){
   second.style.display="none";
   first.style.display="block";
-    },4000);
+    },3000);
   }
 }
