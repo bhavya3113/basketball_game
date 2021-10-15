@@ -4,15 +4,51 @@ var ball;
 var imgball = new Image();
 imgball.src = "images/ball.png";
 imgball.onload = function () {
-  ball = new Ball(imgball,0,370);
+  ball = new Ball(imgball,0,350);
   ball.draw();
 };
 
-var angle = new Angle(95,500);
-angle.draw();
-var angleid = setInterval(function () {
-  angle.update();
-}, 30);
+var angle = new Angle(112,510);
+
+// mouse position
+function getMousePos(canvas, event) {
+  var rect = canvas.getBoundingClientRect();
+  return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+  };
+}
+//to check whether a point is inside a rectangle
+function isInside(pos, rect){
+  return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y
+}
+
+var canvas = document.getElementById('frontcanvas');
+var context = canvas.getContext('2d');
+// clickable area
+var rectplus = {
+  x:5,
+  y:530,
+  width:50,
+  height:50
+};
+var rectminus={
+  x:55,
+  y:530,
+  width:50,
+  height:50
+}
+// click event 
+canvas.addEventListener('click', function(evt) {
+  var mousePos = getMousePos(canvas, evt);
+
+  if (isInside(mousePos,rectplus)) {
+    angle.increase();
+  }else if(isInside(mousePos,rectminus)){
+    angle.decrease();
+  }   
+}, false);
+
 
 var xHoop = 1190;
 var yHoop = 180;
@@ -78,6 +114,7 @@ function releaseKey(event) {
       }
     }, 19);
   }
+  angle.reset();
 }
 var scoretext = document.getElementById("score");
 var message = document.getElementById("text");

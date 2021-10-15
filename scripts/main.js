@@ -103,7 +103,18 @@ function bground(backC, ringC) {
       bctx.stroke();
 
 
-    
+      var plusimg = new Image();
+      plusimg.onload = function() {
+        bctx.drawImage(plusimg,-720,40,60,50);
+      };
+      
+      plusimg.src = 'images/Plus_Button.png';
+
+      var minusimg = new Image();
+      minusimg.onload = function() {
+        bctx.drawImage(minusimg,-660,40,60,50);
+      };
+      minusimg.src = 'images/Minus_Button.png';
      
      
 

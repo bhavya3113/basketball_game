@@ -65,44 +65,52 @@ Ball.prototype.goal = function () {
 };
 
 
-function Angle(x, y) {
-  this.x = x;
-  this.y = y;
-  this.change = 1;
-}
+class Angle{
+  constructor(x,y){
+    this.x = x;
+    this.y =y;
+  }
+  draw(){
+  screen.context.beginPath();
+  screen.context.strokeStyle = "green";
+  screen.context.lineWidth = 5;
+  screen.context.moveTo(2,510);
+  screen.context.lineTo(112,510);
+  screen.context.stroke();
+  screen.context.beginPath();
+  screen.context.strokeStyle = "red";
+  screen.context.lineWidth = 6;
+  screen.context.moveTo(this.x, this.y);
+  screen.context.lineTo(55,510);
+  screen.context.stroke();
+  
+  }
 
-Angle.prototype.draw = function () {
-  ctx = screen.context;
-  ctx.beginPath();
-  ctx.strokeStyle = "green";
-  ctx.lineWidth = 5;
-  ctx.moveTo(0,560);
-  ctx.lineTo(78,560);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.strokeStyle = "green";
-  ctx.lineWidth = 6;
-  ctx.moveTo(this.x, this.y);
-  ctx.lineTo(40,560);
-  ctx.stroke();
-};
-
-Angle.prototype.update = function () {
-  this.clear();
-  this.draw();
-  this.x += this.change;
-  this.y += this.change;
-  if (this.y > 530) {
-    this.change = -1;
-  } 
-   else if (this.x < 55) {
-    this.change = 1;
+   increase()
+   {
+     this.clear();
+     this.draw();
+     this.x-=1;
+     this.y-=1;
+   }
+  decrease()
+  {
+    this.clear();
+    this.draw();
+    this.x+=1;
+    this.y+=1;
+  }
+  clear(){
+      screen.context.clearRect(35,440,200,200);
+  }
+  reset()
+  {
+    this.x=112;
+    this.y=510;
+    this.draw();
   }
 };
 
-Angle.prototype.clear = function () {
-  screen.context.clearRect(20,458,200,200);
-};
 
 function Hoop(x, y, length, backx, backy, backheight) {
   this.x = x;
