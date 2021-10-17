@@ -30,39 +30,42 @@ var screen = {
   },
 };
 
-function Ball(ball_img , x, y)
-{
-  this.ballimg = ball_img;
-  this.x = x;
-  this.y = y;
-  this.xVel = 0;
-  this.yVel = 0;
-  this.yAcc = 1;
-  this.xpos = x;
-  this.ypos = y;
-  this.scored = false;
+class Ball{
+  constructor(ball_img,x,y)
+  {
+      this.ballimg = ball_img;
+      this.x = x;
+      this.y = y;
+      this.xVel = 0;
+      this.yVel = 0;
+      this.yAcc = 1;
+      this.scored = false;
+
+  }
+  draw()
+  {
+    
+  screen.context.drawImage(this.ballimg, this.x, this.y, 90, 90);
+  }
+  move()
+  {
+      this.draw();
+      this.x += this.xVel;
+      this.y -= this.yVel;
+      this.yVel -= this.yAcc;
+  }
+  reset()
+  {
+    this.x = 0;
+    this.y = 350;
+     this.draw();
+  }
+  goal()
+  {
+    this.xVel = 0;
+  }
 }
 
-Ball.prototype.draw = function () {
-  screen.context.drawImage(this.ballimg, this.x, this.y, 90, 90);
-};
-
-Ball.prototype.move = function () {
-  this.draw();
-  this.x += this.xVel;
-  this.y -= this.yVel;
-  this.yVel -= this.yAcc;
-};
-
-Ball.prototype.reset = function () {
-  this.x = this.xpos;
-  this.y = this.ypos;
-  this.draw();
-};
-
-Ball.prototype.goal = function () {
-  this.xVel = 0;
-};
 
 
 class Angle{
@@ -90,15 +93,15 @@ class Angle{
    {
      this.clear();
      this.draw();
-     this.x-=1;
-     this.y-=1;
+     this.x-=2;
+     this.y-=2;
    }
   decrease()
   {
     this.clear();
     this.draw();
-    this.x+=1;
-    this.y+=1;
+    this.x+=2;
+    this.y+=2;
   }
   clear(){
       screen.context.clearRect(35,440,200,200);
@@ -133,29 +136,20 @@ Hoop.prototype.collide = function (x, y) {
   }
   //hoop front collision
   if (
-    x+80  > this.x - this.hooplength - 10 &&
-    x+80  < this.x - this.hooplength &&
-    y+80  > this.y - 10 &&
-    y+80  < this.y + 30
+    x+90  > this.x - this.hooplength - 10 &&
+    x+90  < this.x - this.hooplength &&
+    y+90  > this.y - 10 &&
+    y+90  < this.y + 30
   ) {
     return 1;
   }
   //score
   if (
     ballx > this.x - this.hooplength &&
-    ballx < this.x + 25 &&
+    ballx < this.x  &&
     bally > this.y - 10 &&
     bally < this.y + 5
   ) {
     return 2;
   }
-  // more collision conditions
-  if (
-    x+60  > this.x - 10 &&
-    x+60  < this.x + 30 &&
-    y+60  > this.y - 30 &&
-    y+60 < this.y + 30
-  ) {
-    return 3;
-  } 
 };
