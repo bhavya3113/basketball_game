@@ -9,6 +9,7 @@ imgball.onload = function () {
 };
 
 var angle = new Angle(112,510);
+angle.draw();
 
 // mouse position
 function getMousePos(canvas, event) {
@@ -58,48 +59,54 @@ var yTop=98;
 var hoop = new Hoop(xHoop, yHoop, 170, xTop, yTop, 80);
 
 var powerMeter;
-var power;
+var power=35;
 var powerbar = document.getElementById("progress");
 
+var display =0;
 function pressKey(event) {
-  if (event.keyCode == 38 && keyPressed == false && ball.x == ball.xpos) {
-    keyPressed = true;
-    power = 35;
-    powerMeter = setInterval(function () {
-      powerbar.innerHTML = power - 34;
-      let percentage = (power - 35) * 10;
-      powerbar.style.width = 100 - percentage + "%";
-      if (power < 45) power += 1;
-    }, 200);
+    if (event.keyCode == 38 && keyPressed == false ) {
+      keyPressed = true;
+      powerMeter = setInterval(function () {
+        powerbar.innerHTML = display;
+        let percentage = display * 10;
+        powerbar.style.width = 100 - percentage + "%";
+        if (display < 10) {
+          display += 1;
+        }
+      }, 200);
+    }
   }
-}
 
 var shotid;
+
+var scoretext = document.getElementById("score");
+var score = 0;
 
 function releaseKey(event) {
   if (event.keyCode == 38 && keyPressed == true) {
     keyPressed = false;
     clearInterval(powerMeter);
     
-    var tan = (560-angle.y)/(angle.x - 39);
-    ball.xVel = power * Math.cos(Math.atan(tan));
-    ball.yVel = power * Math.sin(Math.atan(tan));
+    
+    var ang = Math.atan2(510-angle.y,angle.x-55);
+    ball.xVel = (power+display)*Math.cos(ang);
+    ball.yVel= (power+display)*Math.sin(ang);
+
+    display = 0;
 
     shotid = setInterval(function () {
       screen.clear();
       
       if (ball.x > width || ball.y > height) {
         ball.reset();
+        angle.reset();
         clearInterval(shotid);
-        ball.scored = false;
       } else {
         ball.move();
         var collision = hoop.collide(ball.x, ball.y);
         //score
         if (collision == 2) {
           ball.scored = true;
-          score += 1;
-      showcomments();
           ball.x = hoop.x - hoop.hooplength / 2 - 45;
           ball.goal();
         }
@@ -107,34 +114,12 @@ function releaseKey(event) {
           ball.xVel *= -1;
           ball.xVel -= 4;
         }
-        if (collision == 3) {
-          ball.xVel *= -1;
-          ball.yVel *= -1;
+        if(ball.scored)
+        {  score += 1;
+         scoretext.innerHTML = "score=" + score;
+           ball.scored=false;
         }
       }
     }, 19);
-  }
-  angle.reset();
-}
-var scoretext = document.getElementById("score");
-var message = document.getElementById("text");
-var score = 0;
-
-function showcomments() {
-  scoretext.innerHTML = "score=" + score;
-  if (score == 3) {
-    message.innerHTML = "Amazing!";
-  } else if (score == 5) {
-    message.innerHTML = "On fire!";
-    document.getElementById("second").style.backgroundColor="#000099";
-  } else if (score == 8) {
-    message.innerHTML = "Awesome!";
-  } else if (score == 10) {
-    message.innerHTML = "You Won!!......<br>Returning to HomePage...";
-    clearInterval(angleid);
-    setTimeout(function(){
-  second.style.display="none";
-  first.style.display="block";
-    },3000);
   }
 }
