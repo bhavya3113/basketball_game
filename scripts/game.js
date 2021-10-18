@@ -118,8 +118,13 @@ function releaseKey(event) {
         {  score += 1;
          scoretext.innerHTML = "score=" + score;
            ball.scored=false;
+           if(score>hs)
+           localStorage.setItem("highscore",score);  
         }
       }
     }, 19);
   }
 }
+
+var hs =localStorage.getItem('highscore');
+document.getElementById("hs").innerHTML=hs;

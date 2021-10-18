@@ -75,6 +75,14 @@ input{
   margin: 50px;
   border-radius: 50%;
 }
+#highscore {
+  width: 200px;
+  background-image: linear-gradient(grey, aqua);
+  font-size: 30px;
+  text-align: center;
+  margin: 50px;
+  border-radius: 50%;
+}
 #progress-bar {
   width: 30%;
   height: 40%;
